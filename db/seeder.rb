@@ -28,8 +28,8 @@ puts "🍎 Fyller på med data..."
 db.execute("INSERT INTO users ( username, email, password) VALUES ('jacob', 'jacobfinndin@example.com', 'jacob1')")
 db.execute("INSERT INTO users ( username, email, password) VALUES ('hugo', 'hugograhn@example.com', 'hugo2')")
 
-db.execute('INSERT INTO todos (name, description, completed) VALUES ("Köp mjölk", "3 lite mellanmjölk, eko", 1)')
-db.execute('INSERT INTO todos (name, description, completed) VALUES ("Köp julgran", "En rödgran", 0)')
-db.execute('INSERT INTO todos (name, description, completed) VALUES ("Pynta gran", "Glöm inte lamporna i granen och tomten", 0)')
+db.execute('INSERT INTO todos (name, description, completed, user_id) VALUES ("Köp mjölk", "3 lite mellanmjölk, eko", 1, 1)')
+db.execute('INSERT INTO todos (name, description, completed, user_id) VALUES ("Köp julgran", "En rödgran", 0, 2)')
+db.execute('INSERT INTO todos (name, description, completed, user_id) VALUES ("Pynta gran", "Glöm inte lamporna i granen och tomten", 0, 3)')
 
 puts "✅ Databasen är seedad!"

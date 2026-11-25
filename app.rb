@@ -14,7 +14,33 @@ class App < Sinatra::Base
     end
 
     get '/' do        
+        redirect(:'/todos')
+    end
+
+    get '/todos' do
+        @todos = db.execute('SELECT * FROM todos')
+        ap @todos
         erb(:'todos/index')
+    end
+
+    get '/todos/new' do 
+        erb(:'todos/new')
+    end
+
+    get '/todos/:id' do |id|
+        @todo = db.execute('SELECT * FROM todos WHERE id = ?', id.to_i).first 
+        ap @todo
+        erb(:'todos/show')
+    end
+
+    post '/todos' do
+        ap params 
+        name = params['name']
+        description = params['description']
+
+        db.execute('INSERT INTO todos (name, description) VALUES (?, ?)', [name, description])
+
+        redirect('/todos')
     end
 
 end
